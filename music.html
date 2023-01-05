@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<!--
+	Stephen Chin
+-->
+<html>
+	<head>
+		<title>Music!</title>
+		<style>
+			body
+			{
+				background-color: rgb(159, 218, 245);
+			}
+			
+			h1
+			{
+				text-align: center;
+			}
+			
+			h2
+			{
+				text-align: center;
+				text-decoration: underline;
+			}
+			
+			.headerbox
+			{
+				border: 3px solid;
+				border-color: rgb(226, 152, 227);
+				background-color: rgb(229, 192, 240);
+			}
+			
+			.headerlink
+			{
+				font-size: 16pt;
+				text-decoration: none;
+			}
+			
+			#home
+			{
+			
+			}
+			
+			#about
+			{
+			
+			}
+			
+			#academics
+			{
+			
+			}
+			
+			#videogames
+			{
+			
+			}
+			
+			#music
+			{
+			
+			}
+			
+			#interactive
+			{
+			
+			}
+			
+			p
+			{
+				padding: 0 10%;
+				text-align:center;
+				display: flex;
+				justify-content: space-evenly;
+			}
+			
+			.preface
+			{
+				text-align: center;
+				font-size: 14pt;
+			}
+			
+			#listdiv
+			{
+				display: flex;
+				justify-content: center;
+				/*font-size: 14pt;*/
+			}
+			
+			ul
+			{
+				/*text-align: center;*/
+				/*list-style-position: inside;*/ 
+				font-size: 14pt;
+			}
+			
+			img
+			{
+				width: 12%;
+			}
+			
+			.albumtitle
+			{
+				text-align:center;
+				font-size: 16pt;
+			}
+			
+			.albumname
+			{
+				font-style: italic;
+			}
+			
+			#question
+			{
+				font-size: 13pt;
+			}
+		</style>
+		<script>
+			function initialize()
+			{
+				yesResponse = document.getElementById("yes");
+				noResponse = document.getElementById("no");
+				responseOutput = document.getElementById("responsediv");
+			}
+			
+			function checkAnswer()
+			{
+				if (yesResponse.checked)
+				{
+					responseOutput.innerHTML = "You're right! My favorite album, <i>In Rainbows</i>, <i>is</i> made by my favorite artist, Radiohead!";
+				}
+				else
+				{
+					if (noResponse.checked)
+					{
+						responseOutput.innerHTML = "Sorry, but my favorite album, <i>In Rainbows</i>, <i>is</i> made by my favorite artist, Radiohead.";
+					}
+					else
+					{
+						responseOutput.innerHTML = "Enter a response using one of the checkboxes.";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<h1>Music</h1>
+		
+		<hr />
+		
+		<p>
+			<span class = "headerbox" id = "home">
+				<a class = "headerlink" href = "index.html">Home</a>
+			</span>
+			<span class = "headerbox" id = "academics">
+				<a class = "headerlink" href = "academics.html">Academics</a>
+			</span>
+			<span class = "headerbox" id = "videogames">
+				<a class = "headerlink" href = "videogames.html">Video Games</a>
+			</span>
+			<span class = "headerbox" id = "music">
+				<a class = "headerlink" href = "music.html">Music</a>
+			</span>
+			<span class = "headerbox" id = "interactive">
+				<a class = "headerlink" href = "interactive.html">Interactive Tools</a>
+			</span>
+		</p>
+		
+		<hr />
+		
+		<h2>
+			Artists
+		</h2>
+		
+		<div class = "preface">
+			Some of my favorite music artists include:
+		</div>
+		<div id = "listdiv">
+			<ul id = "list">
+				<li>Radiohead</li>
+				<li>Tame Impala</li>
+				<li>Red Vox</li>
+				<li>Gorillaz</li>
+				<li>Queens of the Stone Age</li>
+				<li>King Gizzard and the Lizard Wizard</li>
+				<li>MGMT</li>
+				<li>David Bowie</li>
+				<li>Beach House</li>
+			</ul>
+		</div>
+		
+		<br />
+		<br />
+		
+		<h2>
+			Albums
+		</h2>
+		
+		<div class = "preface">
+			Some of my favorite albums include (in no particular order):
+		</div>
+		
+		<div class = "albumtitle">
+			Radiohead - <span class = "albumname">In Rainbows</span> (2007)
+			<div>
+				<img src = "images/music/In_Rainbows.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Radiohead - <span class = "albumname">OK Computer</span> (1997)
+			<div>
+				<img src = "images/music/OK_Computer.png">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Radiohead - <span class = "albumname">Kid A</span> (2000)
+			<div>
+				<img src = "images/music/Kid_A.png">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Tame Impala - Lonerism (2012)
+			<div>
+				<img src = "images/music/Lonerism.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Tame Impala - <span class = "albumname">Currents</span> (2015)
+			<div>
+				<img src = "images/music/Currents.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Red Vox - <span class = "albumname">Another Light</span> (2017)
+			<div>
+				<img src = "images/music/Another_Light.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Red Vox - <span class = "albumname">Realign</span> (2020)
+			<div>
+				<img src = "images/music/Realign.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Gorillaz - <span class = "albumname">Demon Days</span> (2005)
+			<div>
+				<img src = "images/music/Demon_Days.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Gorillaz - <span class = "albumname">Plastic Beach</span> (2010)
+			<div>
+				<img src = "images/music/Plastic_Beach.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			MGMT - <span class = "albumname">Little Dark Age</span> (2018)
+			<div>
+				<img src = "images/music/Little_Dark_Age.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Queens of the Stone Age - <span class = "albumname">Rated R</span> (2000)
+			<div>
+				<img src = "images/music/Rated_R.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Queens of the Stone Age - <span class = "albumname">...Like Clockwork</span> (2013)
+			<div>
+				<img src = "images/music/Like_Clockwork.png">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			King Gizzard and the Lizard Wizard - <span class = "albumname">Flying Microtonal Banana</span> (2017)
+			<div>
+				<img src = "images/music/Flying_Microtonal_Banana.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			King Gizzard and the Lizard Wizard - <span class = "albumname">Nonagon Infinity</span> (2016)
+			<div>
+				<img src = "images/music/Nonagon_Infinity.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Wilco - <span class = "albumname">Yankee Hotel Foxtrot</span> (2002)
+			<div>
+				<img src = "images/music/Yankee_Hotel_Foxtrot.jpg">
+			</div>
+		</div>
+		
+		<br />
+		
+		<div class = "albumtitle">
+			Weyes Blood - <span class = "albumname">Titanic Rising</span> (2019)
+			<div>
+				<img src = "images/music/Titanic_Rising.jpg">
+			</div>
+		</div>
+		
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		
+		<div id = "question">
+			QUESTION: Do you think my favorite album is made by my favorite artist?
+			<br />
+			<input id = "yes" type = "radio" name = "favorite" /> Yes<br />
+			<input id = "no" type = "radio" name = "favorite"/> No<br />
+			<button onclick = "checkAnswer()" >Submit</button>
+			<div id = "responsediv"></div>
+		</div>
+		
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+	</body>
+</html>

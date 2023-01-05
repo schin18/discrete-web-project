@@ -1,0 +1,745 @@
+<!DOCTYPE HTML>
+<!--
+	Stephen Chin
+-->
+<html>
+	<head>
+		<title>Interactive Tools!</title>
+		<style>
+			body
+			{
+				background-color: rgb(159, 218, 245);
+			}
+			
+			h1
+			{
+				text-align: center;
+			}
+			
+			h2
+			{
+				text-decoration: underline;
+			}
+			
+			.headerbox
+			{
+				border: 3px solid;
+				border-color: rgb(226, 152, 227);
+				background-color: rgb(229, 192, 240);
+			}
+			
+			.headerlink
+			{
+				font-size: 16pt;
+				text-decoration: none;
+			}
+			
+			#home
+			{
+			
+			}
+			
+			#about
+			{
+			
+			}
+			
+			#academics
+			{
+			
+			}
+			
+			#videogames
+			{
+			
+			}
+			
+			#music
+			{
+			
+			}
+			
+			#interactive
+			{
+			
+			}
+			
+			p
+			{
+				/*width: 80%;*/
+				padding: 0 10%;
+				text-align:center;
+				display: flex;
+				justify-content: space-evenly;
+			}
+		</style>
+		<script>
+			function initialize()
+			{
+				userInput = document.getElementById("input");
+				conversionOutput = document.getElementById("output");
+				selectInput = document.getElementById("inputselect");
+				selectOutput = document.getElementById("outputselect");
+				invalidOutput = document.getElementById("invaliddiv");
+				validInput = false;
+			}
+			
+			function checkInput()
+			{
+				if (userInput.value == "")
+				{
+					invalidOutput.innerHTML = "No Number Entered";
+					validInput = false;
+				}
+				else
+				{
+					var invalidCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~`!@#$%^&*()-_=+{}[]|:;\"\'<>,?\s/";		//error: spacebar check doesn't work out
+					invalidOutput.innerHTML = "";
+					validInput = true;
+					for (var i = 0; i < userInput.value.length; i++)
+					{
+						for (var j = 0; j < invalidCharacters.length; j++)
+						{
+							//console.log(userInput.value.substr(i, 1));
+							//console.log(invalidCharacters.substr(j, 1));
+							if (userInput.value.substr(i, 1) == invalidCharacters.substr(j, 1))
+							{
+								invalidOutput.innerHTML = "Invalid Input";
+								validInput = false;
+							}
+						}
+					}
+				}
+				if (validInput)
+				{
+					checkUnits();
+				}
+			}
+			
+			function checkUnits()
+			{
+				//invalidOutput.innerHTML = "Success";
+				if (selectInput.value == "inch")
+				{
+					if (selectOutput.value == "inch")
+					{
+						conversionOutput.value = userInput.value;
+					}
+					else if (selectOutput.value == "feet")
+					{
+						convertInToFt();
+					}
+					else if (selectOutput.value == "yard")
+					{
+						convertInToYd();
+					}
+					else if (selectOutput.value == "mile")
+					{
+						convertInToMi();
+					}
+					else if (selectOutput.value == "millimeter")
+					{
+						convertInToMm();
+					}
+					else if (selectOutput.value == "centimeter")
+					{
+						convertInToCm();
+					}
+					else if (selectOutput.value == "meter")
+					{
+						convertInToM();
+					}
+					else if (selectOutput.value == "kilometer")
+					{
+						convertInToKm();
+					}
+				}
+				else if (selectInput.value == "feet")
+				{
+					if (selectOutput.value == "inch")
+					{
+						convertFtToIn();
+					}
+					else if (selectOutput.value == "feet")
+					{
+						conversionOutput.value = userInput.value;
+					}
+					else if (selectOutput.value == "yard")
+					{
+						convertFtToYd();
+					}
+					else if (selectOutput.value == "mile")
+					{
+						convertFtToMi();
+					}
+					else if (selectOutput.value == "millimeter")
+					{
+						convertFtToMm();
+					}
+					else if (selectOutput.value == "centimeter")
+					{
+						convertFtToCm();
+					}
+					else if (selectOutput.value == "meter")
+					{
+						convertFtToM();
+					}
+					else if (selectOutput.value == "kilometer")
+					{
+						convertFtToKm();
+					}
+				}
+				else if (selectInput.value == "yard")
+				{
+					if (selectOutput.value == "inch")
+					{
+						convertYdToIn();
+					}
+					else if (selectOutput.value == "feet")
+					{
+						convertYdToFt();
+					}
+					else if (selectOutput.value == "yard")
+					{
+						conversionOutput.value = userInput.value;
+					}
+					else if (selectOutput.value == "mile")
+					{
+						convertYdToMi();
+					}
+					else if (selectOutput.value == "millimeter")
+					{
+						convertYdToMm();
+					}
+					else if (selectOutput.value == "centimeter")
+					{
+						convertYdToCm();
+					}
+					else if (selectOutput.value == "meter")
+					{
+						convertYdToM();
+					}
+					else if (selectOutput.value == "kilometer")
+					{
+						convertYdToKm();
+					}
+				}
+				else if (selectInput.value == "mile")
+				{
+					if (selectOutput.value == "inch")
+					{
+						convertMiToIn();
+					}
+					else if (selectOutput.value == "feet")
+					{
+						convertMiToFt();
+					}
+					else if (selectOutput.value == "yard")
+					{
+						convertMiToYd();
+					}
+					else if (selectOutput.value == "mile")
+					{
+						conversionOutput.value = userInput.value;
+					}
+					else if (selectOutput.value == "millimeter")
+					{
+						convertMiToMm();
+					}
+					else if (selectOutput.value == "centimeter")
+					{
+						convertMiToCm();
+					}
+					else if (selectOutput.value == "meter")
+					{
+						convertMiToM();
+					}
+					else if (selectOutput.value == "kilometer")
+					{
+						convertMiToKm();
+					}
+				}
+				else if (selectInput.value == "millimeter")
+				{
+					if (selectOutput.value == "inch")
+					{
+						convertMmToIn();
+					}
+					else if (selectOutput.value == "feet")
+					{
+						convertMmToFt();
+					}
+					else if (selectOutput.value == "yard")
+					{
+						convertMmToYd();
+					}
+					else if (selectOutput.value == "mile")
+					{
+						convertMmToMi();
+					}
+					else if (selectOutput.value == "millimeter")
+					{
+						conversionOutput.value = userInput.value;
+					}
+					else if (selectOutput.value == "centimeter")
+					{
+						convertMmToCm();
+					}
+					else if (selectOutput.value == "meter")
+					{
+						convertMmToM();
+					}
+					else if (selectOutput.value == "kilometer")
+					{
+						convertMmToKm();
+					}
+				}
+				else if (selectInput.value == "centimeter")
+				{
+					if (selectOutput.value == "inch")
+					{
+						convertCmToIn();
+					}
+					else if (selectOutput.value == "feet")
+					{
+						convertCmToFt();
+					}
+					else if (selectOutput.value == "yard")
+					{
+						convertCmToYd();
+					}
+					else if (selectOutput.value == "mile")
+					{
+						convertCmToMi();
+					}
+					else if (selectOutput.value == "millimeter")
+					{
+						convertCmToMm();
+					}
+					else if (selectOutput.value == "centimeter")
+					{
+						conversionOutput.value = userInput.value;
+					}
+					else if (selectOutput.value == "meter")
+					{
+						convertCmToM();
+					}
+					else if (selectOutput.value == "kilometer")
+					{
+						convertCmToKm();
+					}
+				}
+				else if (selectInput.value == "meter")
+				{
+					if (selectOutput.value == "inch")
+					{
+						convertMToIn();
+					}
+					else if (selectOutput.value == "feet")
+					{
+						convertMToFt();
+					}
+					else if (selectOutput.value == "yard")
+					{
+						convertMToYd();
+					}
+					else if (selectOutput.value == "mile")
+					{
+						convertMToMi();
+					}
+					else if (selectOutput.value == "millimeter")
+					{
+						convertMToMm();
+					}
+					else if (selectOutput.value == "centimeter")
+					{
+						convertMToCm();
+					}
+					else if (selectOutput.value == "meter")
+					{
+						conversionOutput.value = userInput.value;
+					}
+					else if (selectOutput.value == "kilometer")
+					{
+						convertMToKm();
+					}
+				}
+				else if (selectInput.value == "kilometer")
+				{
+					if (selectOutput.value == "inch")
+					{
+						convertKmToIn();
+					}
+					else if (selectOutput.value == "feet")
+					{
+						convertKmToFt();
+					}
+					else if (selectOutput.value == "yard")
+					{
+						convertKmToYd();
+					}
+					else if (selectOutput.value == "mile")
+					{
+						convertKmToMi();
+					}
+					else if (selectOutput.value == "millimeter")
+					{
+						convertKmToMm();
+					}
+					else if (selectOutput.value == "centimeter")
+					{
+						convertKmToCm();
+					}
+					else if (selectOutput.value == "meter")
+					{
+						convertKmToM();
+					}
+					else if (selectOutput.value == "kilometer")
+					{
+						conversionOutput.value = userInput.value;
+					}
+				}
+			}
+			
+			function convertInToFt()
+			{
+				conversionOutput.value = userInput.value / 12;
+			}
+			
+			function convertInToYd()
+			{
+				conversionOutput.value = userInput.value / 36;
+			}
+			
+			function convertInToMi()
+			{
+				conversionOutput.value = userInput.value / 63360;
+			}
+			
+			function convertInToMm()
+			{
+				conversionOutput.value = userInput.value * 25.4;
+			}
+			
+			function convertInToCm()
+			{
+				conversionOutput.value = userInput.value * 2.54;
+			}
+			
+			function convertInToM()
+			{
+				conversionOutput.value = userInput.value * 0.0254;
+			}
+			
+			function convertInToKm()
+			{
+				conversionOutput.value = userInput.value * 0.0000254;
+			}
+			
+			function convertFtToIn()
+			{
+				conversionOutput.value = userInput.value * 12;
+			}
+			
+			function convertFtToYd()
+			{
+				conversionOutput.value = userInput.value / 3;
+			}
+			
+			function convertFtToMi()
+			{
+				conversionOutput.value = userInput.value / 5280;
+			}
+			
+			function convertFtToMm()
+			{
+				conversionOutput.value = userInput.value * 304.8;
+			}
+			
+			function convertFtToCm()
+			{
+				conversionOutput.value = userInput.value * 30.48;
+			}
+			
+			function convertFtToM()
+			{
+				conversionOutput.value = userInput.value * 0.3048;
+			}
+			
+			function convertFtToKm()
+			{
+				conversionOutput.value = userInput.value * 0.0003048;
+			}
+			
+			function convertYdToIn()
+			{
+				conversionOutput.value = userInput.value * 36;
+			}
+			
+			function convertYdToFt()
+			{
+				conversionOutput.value = userInput.value * 3;
+			}
+			
+			function convertYdToMi()
+			{
+				conversionOutput.value = userInput.value / 1760;
+			}
+			
+			function convertYdToMm()
+			{
+				conversionOutput.value = userInput.value * 914.4;
+			}
+			
+			function convertYdToCm()
+			{
+				conversionOutput.value = userInput.value * 91.44;
+			}
+			
+			function convertYdToM()
+			{
+				conversionOutput.value = userInput.value * 0.9144;
+			}
+			
+			function convertYdToKm()
+			{
+				conversionOutput.value = userInput.value * 0.0009144;
+			}
+			
+			function convertMiToIn()
+			{
+				conversionOutput.value = userInput.value * 63360;
+			}
+			
+			function convertMiToFt()
+			{
+				conversionOutput.value = userInput.value * 5280;
+			}
+			
+			function convertMiToYd()
+			{
+				conversionOutput.value = userInput.value * 1760;
+			}
+			
+			function convertMiToMm()
+			{
+				conversionOutput.value = userInput.value * 1609344;
+			}
+			
+			function convertMiToCm()
+			{
+				conversionOutput.value = userInput.value * 160934.4;
+			}
+			
+			function convertMiToM()
+			{
+				conversionOutput.value = userInput.value * 1609.344;
+			}
+			
+			function convertMiToKm()
+			{
+				conversionOutput.value = userInput.value * 1.609344;
+			}
+			
+			function convertMmToIn()
+			{
+				conversionOutput.value = userInput.value / 25.4;
+			}
+			
+			function convertMmToFt()
+			{
+				conversionOutput.value = userInput.value / 304.8;
+			}
+			
+			function convertMmToYd()
+			{
+				conversionOutput.value = userInput.value / 914.4;
+			}
+			
+			function convertMmToMi()
+			{
+				conversionOutput.value = userInput.value / 1609344;
+			}
+			
+			function convertMmToCm()
+			{
+				conversionOutput.value = userInput.value / 10;
+			}
+			
+			function convertMmToM()
+			{
+				conversionOutput.value = userInput.value / 1000;
+			}
+			
+			function convertMmToKm()
+			{
+				conversionOutput.value = userInput.value / 1000000;
+			}
+			
+			function convertCmToIn()
+			{
+				conversionOutput.value = userInput.value / 2.54;
+			}
+			
+			function convertCmToFt()
+			{
+				conversionOutput.value = userInput.value / 30.48;
+			}
+			
+			function convertCmToYd()
+			{
+				conversionOutput.value = userInput.value / 91.44;
+			}
+			
+			function convertCmToMi()
+			{
+				conversionOutput.value = userInput.value / 160934.4;
+			}
+			
+			function convertCmToMm()
+			{
+				conversionOutput.value = userInput.value * 10;
+			}
+			
+			function convertCmToM()
+			{
+				conversionOutput.value = userInput.value / 100;
+			}
+			
+			function convertCmToKm()
+			{
+				conversionOutput.value = userInput.value / 100000;
+			}
+			
+			function convertMToIn()
+			{
+				conversionOutput.value = userInput.value / 0.0254;
+			}
+			
+			function convertMToFt()
+			{
+				conversionOutput.value = userInput.value / 0.3048;
+			}
+			
+			function convertMToYd()
+			{
+				conversionOutput.value = userInput.value / 0.9144;
+			}
+			
+			function convertMToMi()
+			{
+				conversionOutput.value = userInput.value / 1609.344;
+			}
+			
+			function convertMToMm()
+			{
+				conversionOutput.value = userInput.value * 1000;
+			}
+			
+			function convertMToCm()
+			{
+				conversionOutput.value = userInput.value * 100;
+			}
+			
+			function convertMToKm()
+			{
+				conversionOutput.value = userInput.value / 1000;
+			}
+			
+			function convertKmToIn()
+			{
+				conversionOutput.value = userInput.value / 0.0000254;
+			}
+			
+			function convertKmToFt()
+			{
+				conversionOutput.value = userInput.value / 0.0003048;
+			}
+			
+			function convertKmToYd()
+			{
+				conversionOutput.value = userInput.value / 0.0009144;
+			}
+			
+			function convertKmToMi()
+			{
+				conversionOutput.value = userInput.value / 1.609344;
+			}
+			
+			function convertKmToMm()
+			{
+				conversionOutput.value = userInput.value * 1000000;
+			}
+			
+			function convertKmToCm()
+			{
+				conversionOutput.value = userInput.value * 100000;
+			}
+			
+			function convertKmToM()
+			{
+				conversionOutput.value = userInput.value * 1000;
+			}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<h1>Interactive</h1>
+		
+		<hr />
+		
+		<p>
+			<span class = "headerbox" id = "home">
+				<a class = "headerlink" href = "index.html">Home</a>
+			</span>
+			<span class = "headerbox" id = "academics">
+				<a class = "headerlink" href = "academics.html">Academics</a>
+			</span>
+			<span class = "headerbox" id = "videogames">
+				<a class = "headerlink" href = "videogames.html">Video Games</a>
+			</span>
+			<span class = "headerbox" id = "music">
+				<a class = "headerlink" href = "music.html">Music</a>
+			</span>
+			<span class = "headerbox" id = "interactive">
+				<a class = "headerlink" href = "interactive.html">Interactive Tools</a>
+			</span>
+		</p>
+		
+		<hr />
+		<br />
+		
+		<h2>
+			Distance/Length Unit Converter
+		</h2>
+		<form>
+			<input id = "input" type = "text" />
+			<select id = "inputselect">
+				<option value = "inch" selected = "selected">in.</option>
+				<option value = "feet">ft.</option>
+				<option value = "yard">yd.</option>
+				<option value = "mile">mi.</option>
+				<option value = "millimeter">mm.</option>
+				<option value = "centimeter">cm.</option>
+				<option value = "meter">m.</option>
+				<option value = "kilometer">km.</option>
+			</select>
+			<span>=</span>
+			<input id = "output" type = "text" disabled />
+			<select id = "outputselect">
+				<option value = "inch" selected = "selected">in.</option>
+				<option value = "feet">ft.</option>
+				<option value = "yard">yd.</option>
+				<option value = "mile">mi.</option>
+				<option value = "millimeter">mm.</option>
+				<option value = "centimeter">cm.</option>
+				<option value = "meter">m.</option>
+				<option value = "kilometer">km.</option>
+			</select>
+		</form>
+		
+		<br />
+		
+		<button onclick = "checkInput();">Convert</button>
+		<div id = "invaliddiv"></div>
+	</body>
+</html>
